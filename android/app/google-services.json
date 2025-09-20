@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "822109254809",
+    "project_id": "machinetask-29133",
+    "storage_bucket": "machinetask-29133.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822109254809:android:3a0623b733f216153f3408",
+        "android_client_info": {
+          "package_name": "com.example.machine_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7Y5gZqUT2mq6T94p25bq75PEnf5IbtZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
