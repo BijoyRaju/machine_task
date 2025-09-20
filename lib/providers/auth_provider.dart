@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
-import '../models/auth_user.dart';
-import '../services/auth_service.dart';
+import 'package:machine_task/models/auth_user.dart';
+import 'package:machine_task/services/auth_service.dart';
+
 
 class AuthProvider with ChangeNotifier {
   final AuthService _authService = AuthService();
@@ -13,6 +14,7 @@ class AuthProvider with ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get error => _error;
   bool get isLoggedIn => _user != null;
+
 
   Future<void> checkAuthStatus() async {
     _setLoading(true);

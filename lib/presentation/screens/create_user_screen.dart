@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:machine_task/models/user.dart';
+import 'package:machine_task/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-import '../../providers/user_provider.dart';
-import '../../models/user.dart';
+
 
 class CreateUserScreen extends StatefulWidget {
   final User? user;
@@ -200,6 +201,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                                 child: const Text('Cancel'),
                               ),
                             ),
+
                             const SizedBox(width: 16),
                             Expanded(
                               child: ElevatedButton(

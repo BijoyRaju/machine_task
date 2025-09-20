@@ -10,12 +10,14 @@ class ConnectivityService {
 
   bool get isConnected => _isConnected;
 
+  // Initialize the Connectivity method
   Future<void> initialize() async {
     _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
     final connectivityResults = await _connectivity.checkConnectivity();
     _updateConnectionStatus(connectivityResults);
   }
 
+  // Update the connection status
   void _updateConnectionStatus(List<ConnectivityResult> connectivityResults) {
     bool isConnected = connectivityResults.any((result) => 
         result == ConnectivityResult.mobile || 
@@ -28,6 +30,7 @@ class ConnectivityService {
     }
   }
 
+  // Dispose the stream when no longer needed
   void dispose() {
     _connectionStatusController.close();
   }

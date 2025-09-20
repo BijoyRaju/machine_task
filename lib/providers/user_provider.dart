@@ -5,17 +5,19 @@ import '../services/api_service.dart';
 class UserProvider with ChangeNotifier {
   final ApiService _apiService = ApiService();
   
-  List<User> _users = [];
-  bool _isLoading = false;
-  String? _error;
-  int _currentPage = 1;
-  bool _hasReachedMax = false;
+  List<User> _users = []; //Store List of users
+  bool _isLoading = false; // Track Loading state
+  String? _error; // Store error message
+  int _currentPage = 1; // Pagination
+  bool _hasReachedMax = false; // Stops loading when no more data
 
+  // Getters
   List<User> get users => _users;
   bool get isLoading => _isLoading;
   String? get error => _error;
   bool get hasReachedMax => _hasReachedMax;
 
+  // Load Users + Pagination Load
   Future<void> loadUsers({bool refresh = false}) async {
     if (refresh) {
       _currentPage = 1;
@@ -43,12 +45,14 @@ class UserProvider with ChangeNotifier {
     }
   }
 
+  // Load More users Trigger when user scroll down
   Future<void> loadMoreUsers() async {
     if (!_hasReachedMax && !_isLoading) {
       await loadUsers();
     }
   }
 
+  // Get a specific user
   Future<User> getUser(int id) async {
     try {
       return await _apiService.getUser(id);
@@ -57,6 +61,7 @@ class UserProvider with ChangeNotifier {
     }
   }
 
+  // Create a User
   Future<void> createUser(User user) async {
     _setLoading(true);
     try {
@@ -70,6 +75,7 @@ class UserProvider with ChangeNotifier {
     }
   }
 
+  // Update a  User
   Future<void> updateUser(int id, User user) async {
     _setLoading(true);
     try {
@@ -86,6 +92,7 @@ class UserProvider with ChangeNotifier {
     }
   }
 
+  // Delete the selected user
   Future<void> deleteUser(int id) async {
     _setLoading(true);
     try {
@@ -99,16 +106,19 @@ class UserProvider with ChangeNotifier {
     }
   }
 
+  // manage the loading state
   void _setLoading(bool loading) {
     _isLoading = loading;
     notifyListeners();
   }
 
+  // Manage Error
   void _setError(String error) {
     _error = error;
     notifyListeners();
   }
 
+  // Clear the error
   void _clearError() {
     _error = null;
     notifyListeners();

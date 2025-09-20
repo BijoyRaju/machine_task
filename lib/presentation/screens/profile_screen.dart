@@ -31,13 +31,14 @@ class ProfileScreen extends StatelessWidget {
             );
           });
         }
-
+        // Show circular progress Indicator if loading
         if (authProvider.isLoading) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
         }
 
+        // If user details is null show error
         if (authProvider.user == null) {
           return const Scaffold(
             body: Center(child: Text('Error loading profile')),

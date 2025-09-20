@@ -82,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             foregroundColor: Colors.white,
             elevation: 0,
             actions: [
+              // User Photo + Navigation to Profile
               if (authProvider.user != null)
                 IconButton(
                   icon: CircleAvatar(
@@ -177,6 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     ),
+          // Create new user 
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               Navigator.of(context).push(

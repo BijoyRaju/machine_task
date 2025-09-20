@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:machine_task/models/auth_user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/auth_user.dart';
 
 class AuthService {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -39,6 +39,7 @@ class AuthService {
     }
   }
 
+  // Signout the curent user
   Future<void> signOut() async {
     try {
       await _googleSignIn.signOut();
@@ -48,6 +49,7 @@ class AuthService {
     }
   }
 
+  // Get the current the user
   Future<AuthUser?> getCurrentUser() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -62,6 +64,7 @@ class AuthService {
     }
   }
 
+  // Check the login status
   Future<bool> isLoggedIn() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -71,6 +74,7 @@ class AuthService {
     }
   }
 
+  // Save the user data as a Private String
   Future<void> _saveUser(AuthUser user) async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -81,6 +85,8 @@ class AuthService {
     }
   }
 
+
+  // Clear the user
   Future<void> _clearUser() async {
     try {
       final prefs = await SharedPreferences.getInstance();
