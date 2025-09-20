@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:machine_task/models/auth_user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/auth_user.dart';
 
 class AuthService {
   final GoogleSignIn _googleSignIn = GoogleSignIn();

@@ -6,7 +6,7 @@ class UserProvider with ChangeNotifier {
   final ApiService _apiService = ApiService();
   
   List<User> _users = []; //Store List of users
-  bool _isLoading = false; // Tracl Loading state
+  bool _isLoading = false; // Track Loading state
   String? _error; // Store error message
   int _currentPage = 1; // Pagination
   bool _hasReachedMax = false; // Stops loading when no more data

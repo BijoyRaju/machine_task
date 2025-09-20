@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:machine_task/providers/connectivity_provider.dart';
 import 'package:provider/provider.dart';
-import '../../providers/connectivity_provider.dart';
 import 'home_screen.dart';
 
 class NoNetworkScreen extends StatefulWidget {

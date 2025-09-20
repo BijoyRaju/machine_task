@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import '../models/user.dart';
+import 'package:machine_task/models/user.dart';
+
 
 class ApiService {
   static const String baseUrl = 'https://reqres.in'; // Base URL

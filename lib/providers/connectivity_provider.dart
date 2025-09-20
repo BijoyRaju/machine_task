@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import '../services/connectivity_service.dart';
+import 'package:machine_task/services/connectivity_service.dart';
 
 class ConnectivityProvider with ChangeNotifier {
   final ConnectivityService _connectivityService = ConnectivityService();

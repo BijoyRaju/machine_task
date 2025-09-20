@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:machine_task/models/user.dart';
+import 'package:machine_task/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-import '../../providers/user_provider.dart';
-import '../../models/user.dart';
 import 'create_user_screen.dart';
 
 class UserDetailScreen extends StatefulWidget {
