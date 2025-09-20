@@ -8,6 +8,7 @@ class NotificationService {
 
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
+  // iNITIALIZE fIREBASE MESSAGING SETUP
   Future<void> initialize() async {
     // Request permission for iOS
     NotificationSettings settings = await _firebaseMessaging.requestPermission(
@@ -60,6 +61,7 @@ class NotificationService {
     }
   }
 
+  // For Ui handling while the app is active
   void _handleForegroundNotification(RemoteMessage message) {
     if (kDebugMode) {
       print('Foreground notification: ${message.notification?.title}');
@@ -67,6 +69,7 @@ class NotificationService {
     }
   }
 
+  // Handle on tap when the app is terminated
   void _handleNotificationTap(RemoteMessage message) {
     if (kDebugMode) {
       print('Notification tapped: ${message.notification?.title}');
@@ -80,10 +83,12 @@ class NotificationService {
     }
   }
 
+  // Return the FCM Token
   Future<String?> getToken() async {
     return await _firebaseMessaging.getToken();
   }
 
+  // Add the user to a topic
   Future<void> subscribeToTopic(String topic) async {
     await _firebaseMessaging.subscribeToTopic(topic);
     if (kDebugMode) {
@@ -91,10 +96,12 @@ class NotificationService {
     }
   }
 
+  // Remove the user to a topic
   Future<void> unsubscribeFromTopic(String topic) async {
     await _firebaseMessaging.unsubscribeFromTopic(topic);
     if (kDebugMode) {
       print('Unsubscribed from topic: $topic');
     }
   }
+  
 }

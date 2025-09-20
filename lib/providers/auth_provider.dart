@@ -14,6 +14,7 @@ class AuthProvider with ChangeNotifier {
   String? get error => _error;
   bool get isLoggedIn => _user != null;
 
+
   Future<void> checkAuthStatus() async {
     _setLoading(true);
     try {

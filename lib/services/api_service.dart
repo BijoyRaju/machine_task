@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import '../models/user.dart';
 
 class ApiService {
-  static const String baseUrl = 'https://reqres.in';
+  static const String baseUrl = 'https://reqres.in'; // Base URL
   late final Dio _dio;
 
   ApiService() {
@@ -19,6 +19,7 @@ class ApiService {
     ));
   }
 
+  // Fetch Users 
   Future<UserListResponse> getUsers(int page) async {
     try {
       final response = await _dio.get('/api/users', queryParameters: {'page': page});
@@ -29,6 +30,7 @@ class ApiService {
     }
   }
 
+  // Get a Specific user using ID
   Future<User> getUser(int id) async {
     try {
       final response = await _dio.get('/api/users/$id');
@@ -39,15 +41,13 @@ class ApiService {
     }
   }
 
+  // Create User 
   Future<User> createUser(User user) async {
     try {
       await _dio.post('/api/users', data: {
         'name': user.fullName,
         'job': 'Developer',
       });
-      
-      // Since reqres.in doesn't return the created user with all fields,
-      // we'll create a mock response with the provided data
       return User(
         id: DateTime.now().millisecondsSinceEpoch,
         email: user.email,
@@ -60,6 +60,7 @@ class ApiService {
     }
   }
 
+  // Update User using ID
   Future<User> updateUser(int id, User user) async {
     try {
       await _dio.put('/api/users/$id', data: {
@@ -79,6 +80,7 @@ class ApiService {
     }
   }
 
+  // Delete the user using ID
   Future<void> deleteUser(int id) async {
     try {
       await _dio.delete('/api/users/$id');
