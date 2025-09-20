@@ -200,6 +200,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
                                 child: const Text('Cancel'),
                               ),
                             ),
+                            
                             const SizedBox(width: 16),
                             Expanded(
                               child: ElevatedButton(
