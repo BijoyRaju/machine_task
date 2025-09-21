@@ -1,4 +1,4 @@
-# Machine Task - Flutter App
+# Machine Task
 
 A production-like Flutter application that demonstrates Google authentication, CRUD operations against a public API, push notifications, and localization using a simplified architecture.
 
